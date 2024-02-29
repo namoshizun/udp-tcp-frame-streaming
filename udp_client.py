@@ -1,3 +1,4 @@
+import sys
 import socket
 import time
 import struct
@@ -6,7 +7,7 @@ import struct
 # Packet format: frame_number, packet_idx, total_packets, packet_size, timestamp
 HeaderStruct = struct.Struct("!IIIId")
 pack_header = HeaderStruct.pack
-SERVER_IP = "192.168.31.88"
+SERVER_IP = sys.argv[1]
 
 
 def send_frame_data(sock, server_address, frame_number, data):

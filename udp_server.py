@@ -11,7 +11,7 @@ from cy_frame_buffer import FrameBuffer
 # Header format: frame_number, packet_idx, total_packets, packet_size, timestamp
 HeaderStruct = struct.Struct("!IIIId")
 unpack_header = HeaderStruct.unpack
-SERVER_IP = "192.168.31.88"
+SERVER_IP = "0.0.0.0"
 
 
 class FrameBufferManager:

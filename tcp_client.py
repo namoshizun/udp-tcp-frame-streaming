@@ -6,7 +6,7 @@ import struct
 
 HeaderStruct = struct.Struct("IId")
 
-SERVER_IP = "192.168.31.88"
+SERVER_IP = sys.argv[1]
 
 
 def receive_frame(sock):
