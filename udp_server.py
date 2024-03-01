@@ -73,7 +73,7 @@ def udp_server(host=SERVER_IP, port=8003):
         print(f"UDP Server listening on {host}:{port}")
 
         while True:
-            message, client_address = sock.recvfrom(1080 * 60)
+            message, client_address = sock.recvfrom(1080 * 61)
             client_id = client_address[1]  # Using client's port as a simple identifier
             buffer_manager.add_packet(client_id, message)
 

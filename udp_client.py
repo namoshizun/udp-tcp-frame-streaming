@@ -8,6 +8,7 @@ import struct
 HeaderStruct = struct.Struct("!IIIId")
 pack_header = HeaderStruct.pack
 SERVER_IP = sys.argv[1]
+FRAME_SIZE_BYTES = int(sys.argv[2])
 
 
 def send_frame_data(sock, server_address, frame_number, data):
@@ -31,7 +32,7 @@ def video_stream_client(server_ip, server_port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     frame_number = 0
     try:
-        frame_data = b"\0" * 600 * 1024  # 600KB dummy data
+        frame_data = b"\0" * FRAME_SIZE_BYTES
         while True:
             # Simulate capturing a frame (600KB of data)
             send_frame_data(sock, server_address, frame_number, frame_data)

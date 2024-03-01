@@ -7,12 +7,9 @@ import struct
 HeaderStruct = struct.Struct("IId")
 
 SERVER_IP = "0.0.0.0"
+FRAME_SIZE_BYTES = int(sys.argv[2])
 
 N = 0
-
-
-def get_frame_data():
-    return b"\0" * 600 * 1024  # 600KB dummy data
 
 
 def send_frame(sock, frame_data):
@@ -24,7 +21,7 @@ def send_frame(sock, frame_data):
 
 
 def frame_producer_server(port=8003):
-    frame_data = get_frame_data()
+    frame_data = b"\0" * FRAME_SIZE_BYTES
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((SERVER_IP, port))
     server_socket.listen()
